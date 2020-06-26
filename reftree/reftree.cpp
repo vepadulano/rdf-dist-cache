@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
    TRandomMixMax r;
-   ULong64_t entries = 1000;
+   ULong64_t entries{1000};
    std::string filename{"reftree_1000entry.root"};
 
    if (argc > 1) {
