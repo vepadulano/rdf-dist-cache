@@ -6,9 +6,9 @@ USER=$2
 HOST=$3
 CACHEDIR=$4
 
-for i in {1..100}
+for i in {1..1000}
 do
-   echo "Running $EXECUTABLE $i - coldcache"
-   ./$EXECUTABLE
+   printf "\nRunning $EXECUTABLE $i - coldcache\n"
+   python $EXECUTABLE
    ssh -l $USER $HOST "rm -rf ${CACHEDIR}/*"
 done

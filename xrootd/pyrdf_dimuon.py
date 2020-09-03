@@ -4,7 +4,14 @@ Test Dimuon Analysis with xrootd proxy plugin
 import PyRDF
 import ROOT
 
-PyRDF.use("spark")
+PyRDF.use("spark", conf={
+    'npartitions': 3,
+    'spark.master': 'spark://137.138.55.13:7077',
+    'spark.driver.port': 40000,
+    'spark.blockManager.port': 30000,
+    'spark.app.name': 'PyRDF',
+    'spark.executor.instances': 3,
+})
 
 df = PyRDF.RDataFrame("Events", [
     "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/Run2012B_DoubleMuParked.root",
