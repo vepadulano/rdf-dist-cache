@@ -56,7 +56,7 @@ histo = rdf.Histo1D((hname, htitle, nbins, xmin, xmax), hcolumn)
 
 # Graphics
 xaxname = args.xtitle if args.xtitle else "X"
-yaxname = args.ytitle if args.ytitle else "Y"
+yaxname = args.ytitle if args.ytitle else "Occurences"
 axtitlesize = 0.04
 fillstyle = 1001  # Solid histogram fill area
 hlinecolor = ROOT.kBlack
