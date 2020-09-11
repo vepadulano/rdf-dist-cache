@@ -26,6 +26,7 @@ parser.add_argument("--logy", help="Draw the Y axis with a logarithmic scale.",
                     action="store_true")
 parser.add_argument("--width", help="Pixel width of the image", type=int)
 parser.add_argument("--height", help="Pixel height of the image", type=int)
+parser.add_argument("--nbins", help="Number of histogram bins.", type=int)
 args = parser.parse_args()
 
 # Create RDataFrame from .csv file
@@ -40,7 +41,7 @@ timearray = numpy.genfromtxt(filename, skip_header=True)
 median = numpy.median(timearray)
 
 # Decide Histo1D arguments
-nbins = 100
+nbins = args.nbins if args.nbins else 100
 xmin = args.xmin if args.xmin else numpy.min(timearray) - 1
 xmax = args.xmax if args.xmax else numpy.quantile(timearray, .95)
 hname = args.name if args.name else "Stats"

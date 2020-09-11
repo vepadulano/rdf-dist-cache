@@ -26,6 +26,7 @@ parser.add_argument("--logy", help="Draw the Y axis with a logarithmic scale.",
                     action="store_true")
 parser.add_argument("--width", help="Pixel width of the image", type=int)
 parser.add_argument("--height", help="Pixel height of the image", type=int)
+parser.add_argument("--nbins", help="Number of histogram bins.", type=int)
 args = parser.parse_args()
 
 # Create RDataFrame from .csv file
