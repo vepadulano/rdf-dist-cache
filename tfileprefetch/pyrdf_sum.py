@@ -25,6 +25,6 @@ s.GetValue()
 t.Stop()
 realtime = round(t.RealTime(), 2)
 
-with open("xrootd_pyrdf_sum.csv", "a+") as f:
+with open("tfileprefetch_pyrdf_sum.csv", "a+") as f:
     f.write(str(realtime))
     f.write("\n")

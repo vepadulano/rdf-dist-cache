@@ -2,7 +2,10 @@
 Simple sum operation on a column of the reference dataset.
 Connects to the OpenStack VMs Spark cluster. If there is another cluster change
 arguments of PyRDF.use() accordingly.
+This variation simulates the use of an interactive cluster by creating RDF
+actions in a loop. Each action will trigger a new computation graph.
 """
+
 import ROOT
 import PyRDF
 
@@ -18,13 +21,16 @@ PyRDF.use("spark", conf={
 rdf = PyRDF.RDataFrame(
     "reftree",
     "root://eosuser.cern.ch//eos/user/v/vpadulan/reftree/reftree_100000000entry.root")
-s = rdf.Sum("b3")
 
-t = ROOT.TStopwatch()
-s.GetValue()
-t.Stop()
-realtime = round(t.RealTime(), 2)
+for i in range(1, 101):
+    s = rdf.Sum("b3")
 
-with open("xrootd_pyrdf_sum.csv", "a+") as f:
-    f.write(str(realtime))
-    f.write("\n")
+    print("Iteration {} with rdf {} and action {}".format(i, str(rdf), str(s)))
+    t = ROOT.TStopwatch()
+    s.GetValue()
+    t.Stop()
+    realtime = round(t.RealTime(), 2)
+
+    with open("tfileprefetch_pyrdf_sum_interactive.csv", "a+") as f:
+        f.write(str(realtime))
+        f.write("\n")
