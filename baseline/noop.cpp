@@ -17,8 +17,8 @@ int main()
    // Create a TStopwatch to measure the time needed for a noop on the "b3"
    // column of the RDataFrame. This should be a good measure of the time needed
    // to open and read the branch from the remote file or from the cached one.
-   TStopwatch t;
    ROOT::RDataFrame df(treename, filename);
+   TStopwatch t;
    df.Foreach([](Double_t e) {}, {"b3"});
    Double_t elapsed{t.RealTime()};
    timecsv << std::fixed << std::setprecision(2) << elapsed << "\n";
