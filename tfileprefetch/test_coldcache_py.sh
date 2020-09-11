@@ -7,6 +7,6 @@ CACHEDIR=$2
 for i in {1..1000}
 do
    printf "\nRunning $EXECUTABLE $i - coldcache\n"
-   ./$EXECUTABLE
+   python $EXECUTABLE
    rm -rf $CACHEDIR/*
 done
