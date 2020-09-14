@@ -63,4 +63,4 @@ if args.yrange:
 d.BuildLegend()
 
 d.Modified()
-d.SaveAs("pyrdf_interactive_graphs.png")
+d.SaveAs("singlenode_graphs.png")

@@ -63,4 +63,4 @@ if args.yrange:
 d.BuildLegend()
 
 d.Modified()
-d.SaveAs("pyrdf_interactive_graphs.png")
+d.SaveAs("pyrdf_smartscheduler_graphs.png")
