@@ -1,0 +1,5 @@
+python pyrdf_dimuon_simplified_sft112_xrdcache.py 16
+python pyrdf_dimuon_simplified_sft112_xrdcache.py 8
+python pyrdf_dimuon_simplified_sft112_xrdcache.py 4
+python pyrdf_dimuon_simplified_sft112_xrdcache.py 2
+python pyrdf_dimuon_simplified_sft112_xrdcache.py 1
